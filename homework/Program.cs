@@ -8,15 +8,15 @@ namespace Homework
             string enteredCommand = "";
             string name = "";
 
-            PrintGreeting(name, []);
+            PrintGreeting(name);
             while (enteredCommand != Commands.Exit)
             {
                 enteredCommand = Console.ReadLine() ?? "";
 
                 if (name != "" && enteredCommand.StartsWith(Commands.Echo))
                 {
-                    Console.WriteLine(enteredCommand.Substring(Commands.Echo.Length + 1));
-                    PrintGreeting(name, []);
+                    Console.WriteLine(enteredCommand[(Commands.Echo.Length + 1)..]);
+                    PrintGreeting(name);
                     continue;
                 }
 
@@ -32,15 +32,15 @@ namespace Homework
                         {
                             Console.WriteLine("\nПрограмма уже запущена");
                         }
-                        PrintGreeting(name, []);
+                        PrintGreeting(name);
                         break;
                     case Commands.Info:
                         PrintInfo();
-                        PrintGreeting(name, []);
+                        PrintGreeting(name);
                         break;
                     case Commands.Help:
                         PrintHelp();
-                        PrintGreeting(name, []);
+                        PrintGreeting(name);
                         break;
                     case Commands.Exit:
                         break;
@@ -51,7 +51,7 @@ namespace Homework
             }
         }
 
-        private static void PrintGreeting(string name, string[] commands)
+        private static void PrintGreeting(string name)
         {
             bool hasName = name != "";
             string nameOrHello = hasName ? $"{name}" : "Привет";

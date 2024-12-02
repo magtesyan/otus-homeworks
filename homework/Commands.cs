@@ -8,8 +8,8 @@
         public const string Echo = "/echo";
         public const string Exit = "/exit";
 
-        public static string[] availableWithoutNameCommands = { Start, Info, Help, Exit };
-        public static string[] availableWithNameCommands = { Info, Help, Echo, Exit };
+        public static readonly string[] availableWithoutNameCommands = [Start, Info, Help, Exit];
+        public static readonly string[] availableWithNameCommands = [Info, Help, Echo, Exit];
 
         public static void PrintAvailableCommands(bool hasName)
         {
