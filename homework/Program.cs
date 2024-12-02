@@ -15,8 +15,14 @@ namespace Homework
 
                 if (name != "" && enteredCommand.StartsWith(Commands.Echo))
                 {
-                    Console.WriteLine(enteredCommand[(Commands.Echo.Length + 1)..]);
+                    Console.WriteLine(enteredCommand[(Commands.Echo.Length)..].Trim());
                     PrintGreeting(name);
+                    continue;
+                }
+
+                if (name == "" && !Commands.availableWithoutNameCommands.Contains(enteredCommand))
+                {
+                    Commands.PrintNotAvailableCommandError();
                     continue;
                 }
 
@@ -42,6 +48,18 @@ namespace Homework
                         PrintHelp();
                         PrintGreeting(name);
                         break;
+                    case Commands.AddTask:
+                        Tasks.AddToTaskList();
+                        PrintGreeting(name);
+                        break;
+                    case Commands.ShowTask:
+                        Tasks.ShowTaskList();
+                        PrintGreeting(name);
+                        break;
+                    case Commands.RemoveTask:
+                        Tasks.RemoveTaskFromList();
+                        PrintGreeting(name);
+                        break;
                     case Commands.Exit:
                         break;
                     default:
@@ -55,7 +73,7 @@ namespace Homework
         {
             bool hasName = name != "";
             string nameOrHello = hasName ? $"{name}" : "Привет";
-            Console.WriteLine($"{nameOrHello}, введите команду из списка доступных:");
+            Console.WriteLine($"\n{nameOrHello}, введите команду из списка доступных:");
             Commands.PrintAvailableCommands(hasName);
         }
 
@@ -72,14 +90,32 @@ namespace Homework
             Console.Write("/start");
             Console.ResetColor();
             Console.WriteLine(" - Начало программы, нужно будет ввести свое имя");
+
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("/info");
             Console.ResetColor();
-            Console.WriteLine(" - предоставляет информацию о версии программы и дате её создания");
+            Console.WriteLine(" - Предоставляет информацию о версии программы и дате её создания");
+
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("/echo");
             Console.ResetColor();
             Console.WriteLine(" - При вводе этой команды с аргументом, программа возвращает введенный текст");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("/addtask");
+            Console.ResetColor();
+            Console.WriteLine(" - Предоставляет возможность добавить задачу с описанием в список");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("/showtask");
+            Console.ResetColor();
+            Console.WriteLine(" - Показывает список добавленных задач");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("/removetask");
+            Console.ResetColor();
+            Console.WriteLine(" - Удаляет задачу с указанным номером");
+
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("/exit");
             Console.ResetColor();

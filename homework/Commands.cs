@@ -6,10 +6,13 @@
         public const string Info = "/info";
         public const string Help = "/help";
         public const string Echo = "/echo";
+        public const string AddTask = "/addtask";
+        public const string ShowTask = "/showtask";
+        public const string RemoveTask = "/removetask";
         public const string Exit = "/exit";
 
         public static readonly string[] availableWithoutNameCommands = [Start, Info, Help, Exit];
-        public static readonly string[] availableWithNameCommands = [Info, Help, Echo, Exit];
+        public static readonly string[] availableWithNameCommands = [Info, Help, Echo, AddTask, ShowTask, RemoveTask, Exit];
 
         public static void PrintAvailableCommands(bool hasName)
         {
