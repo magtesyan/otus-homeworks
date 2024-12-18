@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadratic", "quadratic\Quadratic.csproj", "{EF260998-7E81-457C-93A1-3F764F4AE649}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes", "Classes\Classes.csproj", "{AB21F806-BC25-4135-A4A0-F08C73C2474C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EF260998-7E81-457C-93A1-3F764F4AE649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF260998-7E81-457C-93A1-3F764F4AE649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF260998-7E81-457C-93A1-3F764F4AE649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB21F806-BC25-4135-A4A0-F08C73C2474C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB21F806-BC25-4135-A4A0-F08C73C2474C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB21F806-BC25-4135-A4A0-F08C73C2474C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB21F806-BC25-4135-A4A0-F08C73C2474C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
