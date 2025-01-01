@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planets", "Planets\Planets.csproj", "{EA53523C-72DA-4D9A-9EA3-56164C589ADB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuples", "Tuples\Tuples.csproj", "{1BBAE6E7-3B3C-435E-801A-A18635F55F8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EA53523C-72DA-4D9A-9EA3-56164C589ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA53523C-72DA-4D9A-9EA3-56164C589ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA53523C-72DA-4D9A-9EA3-56164C589ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBAE6E7-3B3C-435E-801A-A18635F55F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBAE6E7-3B3C-435E-801A-A18635F55F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBAE6E7-3B3C-435E-801A-A18635F55F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBAE6E7-3B3C-435E-801A-A18635F55F8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
