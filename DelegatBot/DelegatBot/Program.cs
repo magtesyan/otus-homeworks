@@ -16,7 +16,7 @@ static void Complete(string message)
 
 DotEnv.Load();
 var token = DotEnv.Read()["TOKEN"];
-var botClient = new TelegramBotClient("8120356962:AAFrMWFTn0bU8TRZSYtvZjPOvkahIjiE0c8");
+var botClient = new TelegramBotClient(token);
 var cancellationTokenSource = new CancellationTokenSource();
 
 var receiverOptions = new ReceiverOptions
