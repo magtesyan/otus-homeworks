@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Files
@@ -13,7 +14,7 @@ namespace Files
                 for (int i = 1; i <= count; i++)
                 {
                     string path = $"{directory.FullName}\\File{i}";
-                    FileStream fs = File.Create(path);
+                    using FileStream fs = File.Create(path);
                     files.Add(fs);
                 }
             }
@@ -26,9 +27,10 @@ namespace Files
             {
                 try
                 {
-                    string fileName = Path.GetFileName(file.Name);
+                    using FileStream fileStream = File.OpenWrite(file.Name);
+                    string fileName = Path.GetFileName(fileStream.Name);
                     byte[] bytesToWrite = Encoding.UTF8.GetBytes(fileName);
-                    await file.WriteAsync(bytesToWrite);
+                    await fileStream.WriteAsync(bytesToWrite);
                 }
                 catch
                 {
@@ -43,9 +45,10 @@ namespace Files
             {
                 try
                 {
+                    using FileStream fileStream = new FileStream(file.Name, FileMode.Append);
                     string today = DateTime.Now.ToString();
                     byte[] bytesToWrite = Encoding.UTF8.GetBytes('\n' + today);
-                    await file.WriteAsync(bytesToWrite);
+                    await fileStream.WriteAsync(bytesToWrite);
                 }
                 finally
                 {
@@ -67,7 +70,7 @@ namespace Files
                     using FileStream file = File.OpenRead(fileInfo.FullName);
                     byte[] buffer = new byte[file.Length];
                     await file.ReadAsync(buffer);
-                    result += $"{ Encoding.UTF8.GetString(buffer)}\n";
+                    result += $"{Encoding.UTF8.GetString(buffer)}\n";
                 }
                 result += '\n';
             }
