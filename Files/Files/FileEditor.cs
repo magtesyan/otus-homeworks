@@ -1,6 +1,9 @@
 ﻿using System.IO;
+using System.IO.Pipes;
 using System.Reflection;
 using System.Text;
+using System.Security.AccessControl;
+using File = System.IO.File;
 
 namespace Files
 {
@@ -27,10 +30,13 @@ namespace Files
             {
                 try
                 {
-                    using FileStream fileStream = File.OpenWrite(file.Name);
-                    string fileName = Path.GetFileName(fileStream.Name);
-                    byte[] bytesToWrite = Encoding.UTF8.GetBytes(fileName);
-                    await fileStream.WriteAsync(bytesToWrite);
+                    if (CheckWriteAllow(file))
+                    {
+                        using FileStream fileStream = File.OpenWrite(file.Name);
+                        string fileName = Path.GetFileName(fileStream.Name);
+                        byte[] bytesToWrite = Encoding.UTF8.GetBytes(fileName);
+                        await fileStream.WriteAsync(bytesToWrite);
+                    }
                 }
                 catch
                 {
@@ -45,10 +51,13 @@ namespace Files
             {
                 try
                 {
-                    using FileStream fileStream = new FileStream(file.Name, FileMode.Append);
-                    string today = DateTime.Now.ToString();
-                    byte[] bytesToWrite = Encoding.UTF8.GetBytes('\n' + today);
-                    await fileStream.WriteAsync(bytesToWrite);
+                    if (CheckWriteAllow(file))
+                    {
+                        using FileStream fileStream = new(file.Name, FileMode.Append);
+                        string today = DateTime.Now.ToString();
+                        byte[] bytesToWrite = Encoding.UTF8.GetBytes('\n' + today);
+                        await fileStream.WriteAsync(bytesToWrite);
+                    }
                 }
                 finally
                 {
@@ -75,6 +84,22 @@ namespace Files
                 result += '\n';
             }
             return result;
+        }
+
+        public bool CheckWriteAllow(FileStream file)
+        {
+            bool hasWriteAllow = false;
+            FileInfo fileInfo = new(file.Name);
+            FileSecurity fSecurity = fileInfo.GetAccessControl();
+            var accessRules = fSecurity.GetAccessRules(true, true, typeof(System.Security.Principal.SecurityIdentifier));
+
+            foreach (FileSystemAccessRule rule in accessRules)
+            {
+                if (rule.AccessControlType == AccessControlType.Allow)
+                    hasWriteAllow = true;
+            }
+
+            return hasWriteAllow;
         }
     }
 }
