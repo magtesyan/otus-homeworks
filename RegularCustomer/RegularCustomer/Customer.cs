@@ -7,7 +7,7 @@ namespace RegularCustomer
 {
     class Customer
     {
-        public static void OnItemChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        public void OnItemChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             switch (e.Action)
             {

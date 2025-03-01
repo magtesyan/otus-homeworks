@@ -21,9 +21,9 @@ namespace RegularCustomer
             }
         }
 
-        public Shop()
+        public void Subscribe(Customer customer)
         {
-            ItemsList.CollectionChanged += Customer.OnItemChanged;
+            ItemsList.CollectionChanged += customer.OnItemChanged;
         }
     }
 }

@@ -3,6 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 Shop Store = new();
 Customer Mikael = new();
+Store.Subscribe(Mikael);
 
 
 while (true)
