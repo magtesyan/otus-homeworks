@@ -40,10 +40,22 @@ static void measureTime(int n)
     stopwatch.Stop();
     Console.WriteLine($"Время выполнения итеративной функции: {stopwatch.Elapsed.TotalMilliseconds} мс");
 
-    stopwatch.Start();
+    stopwatch.Restart();
     getRecursiveFibonacci(n);
     stopwatch.Stop();
     Console.WriteLine($"Время выполнения рекурсивной функции: {stopwatch.Elapsed.TotalMilliseconds} мс\n");
 }
 
-measureTime(5);
+measureTime(20);
+
+//Значение: 5
+//Время выполнения итеративной функции: 0,0616 мс
+//Время выполнения рекурсивной функции: 0,0661 мс
+
+//Значение: 10
+//Время выполнения итеративной функции: 0,064 мс
+//Время выполнения рекурсивной функции: 0,0784 мс
+
+//Значение: 20
+//Время выполнения итеративной функции: 0,1271 мс
+//Время выполнения рекурсивной функции: 60,6861 мс
