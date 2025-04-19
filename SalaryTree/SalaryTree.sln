@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryTree", "SalaryTree\SalaryTree.csproj", "{5A005D0B-8D1B-49E0-8A73-150E94B9AFBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A005D0B-8D1B-49E0-8A73-150E94B9AFBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A005D0B-8D1B-49E0-8A73-150E94B9AFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A005D0B-8D1B-49E0-8A73-150E94B9AFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A005D0B-8D1B-49E0-8A73-150E94B9AFBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3F9374E-1DED-449D-B7D1-1C4A93E56560}
+	EndGlobalSection
+EndGlobal
